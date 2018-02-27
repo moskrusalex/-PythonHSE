@@ -1,0 +1,25 @@
+def merge(a, b):
+    res = []
+    i = 0
+    j = 0
+    lena = len(a)
+    lenb = len(b)
+    while True:
+        if a[i] <= b[j]:
+            res.append(a[i])
+            i += 1
+        else:
+            res.append(b[j])
+            j += 1
+        if i == lena:
+            res.extend(b[j:])
+            break
+        elif j == lenb:
+            res.extend(a[i:])
+            break
+    return res
+
+
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+print(*merge(a, b))
